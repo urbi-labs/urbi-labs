@@ -9,11 +9,11 @@ const Grid = styled.div`
 	grid-template-columns: 1fr 25px 1fr 25px 1fr 25px 1fr 25px 1fr 25px 1fr;
 	${props => props.rows && `grid-template-rows: repeat(${props.rows}, auto);`}
 
-	@media screen and (max-width:  ${props => props.theme.breakpoints.tablet}) {
+	@media screen and (max-width:  ${props => props.theme.breakpoints.tablet}px) {
 		grid-template-columns: 1fr 25px 1fr 25px 1fr 25px 1fr 25px 1fr;
 	}
 
-	@media screen and (max-width:  ${props => props.theme.breakpoints.mobile}) {
+	@media screen and (max-width:  ${props => props.theme.breakpoints.mobile}px) {
 		grid-template-columns: 1fr 25px 1fr 25px 1fr 25px 1fr;
 	}
 `

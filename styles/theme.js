@@ -4,8 +4,8 @@ const theme = {
 		lightestGray: "#E5E5E5"
 	},
 	breakpoints: {
-		tablet: '768px',
-		mobile: '480px'
+		tablet: 768,
+		mobile: 480
 	}
 }
 

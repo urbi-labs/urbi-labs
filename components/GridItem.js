@@ -10,7 +10,7 @@ const Item = styled.div`
 	`}
 
 	${props => props.gridPosition.tablet && `
-		@media screen and (max-width:  ${props.theme.breakpoints.tablet}) {
+		@media screen and (max-width:  ${props.theme.breakpoints.tablet}px) {
 			grid-column-start: ${props.gridPosition.tablet.columnStart || 'auto'};
 			grid-column-end: ${props.gridPosition.tablet.columnEnd || 'auto'};
 			grid-row-start: ${props.gridPosition.tablet.rowStart || 'auto'};
@@ -19,7 +19,7 @@ const Item = styled.div`
 	`}
 	
 	${props => props.gridPosition.mobile && `
-		@media screen and (max-width:  ${props.theme.breakpoints.mobile}) {
+		@media screen and (max-width:  ${props.theme.breakpoints.mobile}px) {
 			grid-column-start: ${props.gridPosition.mobile.columnStart || 'auto'};
 			grid-column-end: ${props.gridPosition.mobile.columnEnd || 'auto'};
 			grid-row-start: ${props.gridPosition.mobile.rowStart || 'auto'};

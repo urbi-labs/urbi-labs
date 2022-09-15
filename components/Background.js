@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { withTheme } from "styled-components"
 import styled from "styled-components"
 import GridContainer from "./GridContainer"
 import useWindowSize from "../services/windowSize"
@@ -11,18 +12,18 @@ const Box = styled.div`
 	}
 `
 
-const LayoutBackground = () => {
+const LayoutBackground = (props) => {
 
 	const size = useWindowSize()
 
 	const [boxCount, setBoxcount] = useState(11)
 
 	useEffect(() => {
-		if(size.width > 768) {
+		if(size.width > props.theme.breakpoints.tablet) {
 			setBoxcount(11)
-		} else if(size.width <= 768 && size.width > 480) {
+		} else if(size.width <= props.theme.breakpoints.tablet && size.width > props.theme.breakpoints.mobile) {
 			setBoxcount(9)
-		} else if (size.width <= 480) {
+		} else if (size.width <= props.theme.breakpoints.mobile) {
 			setBoxcount(7)
 		}
 	}, [size]);
@@ -42,4 +43,4 @@ const LayoutBackground = () => {
 	)
 }
 
-export default LayoutBackground
+export default withTheme(LayoutBackground)
