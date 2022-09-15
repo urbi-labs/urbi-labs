@@ -7,11 +7,20 @@ const Grid = styled.div`
 	padding: 0 32px;
 	display: grid;
 	grid-template-columns: 1fr 25px 1fr 25px 1fr 25px 1fr 25px 1fr 25px 1fr;
+	${props => props.rows && `grid-template-rows: repeat(${props.rows}, auto);`}
+
+	@media screen and (max-width:  ${props => props.theme.breakpoints.tablet}) {
+		grid-template-columns: 1fr 25px 1fr 25px 1fr 25px 1fr 25px 1fr;
+	}
+
+	@media screen and (max-width:  ${props => props.theme.breakpoints.mobile}) {
+		grid-template-columns: 1fr 25px 1fr 25px 1fr 25px 1fr;
+	}
 `
 
 const GridContainer = (props) => {
 	return (
-		<Grid style={props.style}>
+		<Grid style={props.style} rows={props.rows}>
 			{props.children}
 		</Grid>
 	)

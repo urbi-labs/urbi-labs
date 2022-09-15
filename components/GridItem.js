@@ -1,13 +1,36 @@
 import styled from "styled-components"
 
 const Item = styled.div`
-	grid-column-start: ${props => props.start || 'auto'};
-	grid-column-end: ${props => props.end || 'auto'};
+
+	${props => props.gridPosition && props.gridPosition.desktop && `
+		grid-column-start: ${props.gridPosition.desktop.columnStart || 'auto'};
+		grid-column-end: ${props.gridPosition.desktop.columnEnd || 'auto'};
+		grid-row-start: ${props.gridPosition.desktop.rowStart || 'auto'};
+		grid-row-end: ${props.gridPosition.desktop.rowEnd || 'auto'};
+	`}
+
+	${props => props.gridPosition.tablet && `
+		@media screen and (max-width:  ${props.theme.breakpoints.tablet}) {
+			grid-column-start: ${props.gridPosition.tablet.columnStart || 'auto'};
+			grid-column-end: ${props.gridPosition.tablet.columnEnd || 'auto'};
+			grid-row-start: ${props.gridPosition.tablet.rowStart || 'auto'};
+			grid-row-end: ${props.gridPosition.tablet.rowEnd || 'auto'};
+		}
+	`}
+	
+	${props => props.gridPosition.mobile && `
+		@media screen and (max-width:  ${props.theme.breakpoints.mobile}) {
+			grid-column-start: ${props.gridPosition.mobile.columnStart || 'auto'};
+			grid-column-end: ${props.gridPosition.mobile.columnEnd || 'auto'};
+			grid-row-start: ${props.gridPosition.mobile.rowStart || 'auto'};
+			grid-row-end: ${props.gridPosition.mobile.rowEnd || 'auto'};
+		}
+	`}
 `
 
 const GridItem = (props) => {
 	return (
-		<Item start={props.start} end={props.end} style={props.style}>
+		<Item gridPosition={props.gridPosition} style={props.style}>
 			{props.children}
 		</Item>
 	)

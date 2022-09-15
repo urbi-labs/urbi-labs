@@ -1,5 +1,7 @@
+import { useState, useEffect } from "react"
 import styled from "styled-components"
 import GridContainer from "./GridContainer"
+import useWindowSize from "../services/windowSize"
 
 const Box = styled.div`
 	grid-column: span 1;
@@ -11,6 +13,20 @@ const Box = styled.div`
 
 const LayoutBackground = () => {
 
+	const size = useWindowSize()
+
+	const [boxCount, setBoxcount] = useState(11)
+
+	useEffect(() => {
+		if(size.width > 768) {
+			setBoxcount(11)
+		} else if(size.width <= 768 && size.width > 480) {
+			setBoxcount(9)
+		} else if (size.width <= 480) {
+			setBoxcount(7)
+		}
+	}, [size]);
+
 	const backgroundGridStyles = {
 		position: 'fixed',
 		inset: '0',
@@ -19,7 +35,7 @@ const LayoutBackground = () => {
 
 	return (
 		<GridContainer style={backgroundGridStyles}>
-			{[...Array(11)].map((value, index) => (
+			{[...Array(boxCount)].map((value, index) => (
 				<Box key={index}/>
 			))}
 		</GridContainer>
