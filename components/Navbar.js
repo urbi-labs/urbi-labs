@@ -77,8 +77,6 @@ const Navbar = (props) => {
 
 				<NavbarItem
 				href="/"
-				start="5"
-				end="6"
 				gridPosition={{
 					desktop: {
 						columnStart: 5,
