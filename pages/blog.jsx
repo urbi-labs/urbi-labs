@@ -1,8 +1,16 @@
-import React from 'react'
+import Head from 'next/head'
 
 const BlogPage = () => {
   return (
-    <div>BlogPage</div>
+    <div>
+      <Head>
+          <title>Urbi Labs - Blog</title>
+          <meta name="description" content="Blog" />
+          <link rel="icon" href="/favicon.ico" />
+      </Head>
+  
+      <div>BlogPage</div>
+    </div>
   )
 }
 
