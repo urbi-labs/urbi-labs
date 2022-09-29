@@ -29,7 +29,7 @@ export const ComplementArea = styled.div`
 `
 
 export const MainContentArea = styled.div` 
-    width: 500px;     
+    width: 520px;     
     background-color: #fff;
     
     @media screen and (max-width: ${props => props.theme.breakpoints.tablet}px){
@@ -50,16 +50,18 @@ export const CloseIcon = styled(MobileMenuIcon)`
     border: 1px solid ${props => props.theme.colors.blue};
 `
 
-export const ContentContainer = styled(GridContainer)` 
+export const ContentContainer = styled.div` 
     display: flex;
     align-content: center;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: flex-start;
+    padding-top: 50px;
     @media screen and (max-width: ${props => props.theme.breakpoints.tablet}px){
         width: 100%;
         flex: 1;
         flex-direction: row;
+        padding-top: 0;
     }
 ` 

@@ -3,7 +3,8 @@
 $mobile: 480px;
 $tablet: 768px;
 
-$blue: "#015DFE";
+$blue: #015DFE;
+$mediumGray: #75828A;
 
 html,
 body {
@@ -40,3 +41,11 @@ h2, .h2 {
 		line-height: 40px;
 	}
 }
+
+h3, .h3{
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 24px;
+	color: $mediumGray;
+}
+

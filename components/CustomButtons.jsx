@@ -9,7 +9,7 @@ export const PrimaryButton = styled.button`
 	font-size: 16px;
 	font-weight: 600 ;
 	color: #fff;
-	width: 100%;
+	width: ${props => props.width ? props.width : '100%'};
 	cursor: pointer;
 	font-family: "Sora", sans-serif;
 	height: 64px;
