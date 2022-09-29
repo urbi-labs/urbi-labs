@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { StyledLink } from '../components/CustomButtons'
 import GridContainer from '../components/GridContainer'
 import GridItem from '../components/GridItem'
 
@@ -13,7 +14,7 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<div>HomePage</div>
+			<StyledLink primary hasArrow href="/">Home Page</StyledLink>
 		</div>
 	)
 }

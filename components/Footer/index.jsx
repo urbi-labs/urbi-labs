@@ -2,7 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { withTheme } from "styled-components"
 
-import { PrimaryButton } from "../Buttons"
+import { PrimaryButton } from "../CustomButtons"
 import GridContainer from "../GridContainer"
 import GridItem from "../GridItem"
 

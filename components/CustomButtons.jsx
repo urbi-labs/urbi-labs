@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import whiteNextArrow from '/public/assets/white-next-arrow.svg'
+import blueNextArrow from '/public/assets/blue-next-arrow.svg'
 
 // Boton del Footer
 export const PrimaryButton = styled.button`
@@ -22,6 +23,10 @@ export const PrimaryButton = styled.button`
 	}
 `
 
-export const StyledLink = styled.a` 
-
+export const StyledLink = styled.a`
+	color: ${props => props.primary ? props.theme.colors.blue : '#fff'};
+	&:after{
+		padding-left: 10px;
+		content: ${(props) => (props.hasArrow && (props.primary ? `url(${blueNextArrow.src})` : `url(${whiteNextArrow.src})`))};
+	}
 `

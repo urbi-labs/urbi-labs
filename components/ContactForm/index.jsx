@@ -1,7 +1,7 @@
 import { withTheme } from "styled-components"
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { Input } from "./styles";
+import { CustomInput } from "./styles";
 
 const prueba = {
   height: '1200px',
@@ -34,7 +34,7 @@ const ContactForm = () => {
      >
        {({ isSubmitting }) => (
          <Form>
-           <Input type="email" name="email" />
+           <Field component={CustomInput} type="email" name="email" id="email" placeholder="First Name"/>
            <ErrorMessage name="email" component="div" />
            <Field type="password" name="password" />
            <ErrorMessage name="password" component="div" />
