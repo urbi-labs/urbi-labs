@@ -13,11 +13,13 @@ export default function Layout({ children }) {
 	// Funcion para el form de contacto mobile. Cierra el Menu y abre el Contact Form
 	const openContactForm = () => {
         setShowContactForm(true);
+		document.body.style.overflow = 'hidden';
     }
 
 	// Funcion para el form de contacto mobile. Cierra el Menu y abre el Contact Form
 	const closeContactForm = () => {
         setShowContactForm(false);
+		document.body.style.overflow = 'auto';
     }
 
 	return (

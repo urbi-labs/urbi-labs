@@ -3,14 +3,15 @@ import GridContainer from "../GridContainer";
 import { MobileMenuIcon, Nav } from "../Navbar/styles";
 
 export const AsideContainer = styled.aside`
-    min-height: 100vh;
     width: 100%;
     max-width: 100%;
     z-index: 999;
     display: flex;
     flex-direction: row;
-    position: fixed;
+    position: absolute;
     top: 0;
+    bottom: 0;
+    overflow: auto;
     
     @media screen and (max-width: ${props => props.theme.breakpoints.tablet}px){
         flex-direction: column;

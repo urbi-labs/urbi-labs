@@ -15,7 +15,6 @@ import downArrow from '/public/assets/down-arrow.svg'
 import { useRouter } from "next/router"
 import AsideContainer from "../Aside"
 import MobileMenu from "./MobileMenu"
-import ContactForm from "../ContactForm"
 
 
 
@@ -40,10 +39,12 @@ const Navbar = ( props ) => {
 	const [showMenu, setShowMenu] = useState(false);
 
 	const openMenu = () => {
+		document.body.style.overflow = 'hidden';
 		setShowMenu(true);
 	}
 
 	const closeMenu = () => {
+		document.body.style.overflow = 'auto';
 		setShowMenu(false);
 	}
 

@@ -4,7 +4,7 @@ import blueNextArrow from '/public/assets/blue-next-arrow.svg'
 
 // Boton del Footer
 export const PrimaryButton = styled.button`
-	border: solid 1px #fff;
+	border: ${props => props.noBorder ? '0' : 'solid 1px #fff'};
 	background-color: ${props => props.theme.colors.blue} ;
 	font-size: 16px;
 	font-weight: 600 ;

@@ -41,6 +41,7 @@ export const CustomTextArea = styled.textarea`
     border-bottom: 1px solid ${props => props.theme.colors.darkestGray};
     color: #3A4145;
     margin: 30px 0;
+    resize: none;
 
     &::placeholder{
         color: #ACB4B9;
