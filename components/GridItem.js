@@ -30,7 +30,7 @@ const Item = styled.div`
 
 const GridItem = (props) => {
 	return (
-		<Item gridPosition={props.gridPosition} style={props.style}>
+		<Item gridPosition={props.gridPosition} style={props.style} onClick={props.onClick} onMouseEnter={props.onMouseEnter} onMouseLeave={props.onMouseLeave}>			
 			{props.children}
 		</Item>
 	)

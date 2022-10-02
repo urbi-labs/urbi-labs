@@ -11,16 +11,20 @@ const Grid = styled.div`
 
 	@media screen and (max-width:  ${props => props.theme.breakpoints.tablet}px) {
 		grid-template-columns: 1fr 25px 1fr 25px 1fr 25px 1fr 25px 1fr;
+		max-width: 100%;
+		padding: 0 10px;	
 	}
 
 	@media screen and (max-width:  ${props => props.theme.breakpoints.mobile}px) {
 		grid-template-columns: 1fr 25px 1fr 25px 1fr 25px 1fr;
+		max-width: 100%;
+		padding: 0 10px;
 	}
 `
 
 const GridContainer = (props) => {
 	return (
-		<Grid style={props.style} rows={props.rows}>
+		<Grid style={props.style} rows={props.rows} className={props.className}>
 			{props.children}
 		</Grid>
 	)

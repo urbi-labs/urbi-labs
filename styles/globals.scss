@@ -3,6 +3,11 @@
 $mobile: 480px;
 $tablet: 768px;
 
+$blue: #015DFE;
+$mediumGray: #75828A;
+$darkGray: #3A4145;
+$darkestGray: #232729;
+
 html,
 body {
   padding: 0;
@@ -25,19 +30,21 @@ a {
 	padding: 0 32px;
 }
 
-h2 {
-  font-size: 50px;
-	line-height: 56px;
-	color: #fff;
-	letter-spacing: -0.005em;
+h1, .h1 {
+	font-family: 'Sora';
+	font-style: normal;
 	font-weight: 600;
-	margin: 20px 0;
+	font-size: 60px;
+	line-height: 64px;
+	letter-spacing: -0.005em;
+	color: $darkestGray;
 	@media screen and (max-width: $tablet) {
-		text-align: center;
+		font-size: 40px;
+		line-height: 48px;
 	}
 }
 
-.h2 {
+h2, .h2 {
   font-size: 50px;
 	line-height: 56px;
 	color: #fff;
@@ -46,5 +53,22 @@ h2 {
 	margin: 20px 0;
 	@media screen and (max-width: $tablet) {
 		text-align: center;
+		font-size: 32px;
+		line-height: 40px;
 	}
 }
+
+h3, .h3{
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 24px;
+	color: $mediumGray;
+}
+
+button:disabled,
+button[disabled]{
+  background-color: $mediumGray;
+  color: $darkGray;
+  border: 0;
+}
+

@@ -1,9 +1,29 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import GridContainer from '../components/GridContainer'
-import GridItem from '../components/GridItem'
+import styled from 'styled-components'
+import GridContainer from "../components/GridContainer"
+import GridItem from "../components/GridItem"
+import {PrimaryButton, StyledLink} from "../components/CustomButtons"
 
-export default function Home() {
+const MainContainer = styled(GridContainer)` 
+	padding-top: 125px; 
+	padding-bottom: 125px; 
+`
+
+const BlueSpan = styled.span` 
+	color: ${props => props.theme.colors.blue};
+`
+
+const DarkGraySpan = styled.span` 
+	color: ${props => props.theme.colors.darkestGray};
+`
+
+export default function Home( props ) {
+
+	const openContactForm2 = () => {
+		console.log(props);
+		props.openContactForm();
+	}
+
 	return (
 		<div>
 
@@ -13,6 +33,44 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
+			<MainContainer>
+				<GridItem 
+				gridPosition={{
+					desktop: {
+						columnStart: 3,
+						columnEnd: 12,
+					},
+					tablet: {
+						columnStart: 1,
+						columnEnd: 8
+					},
+					mobile: {
+						columnStart: 1,
+						columnEnd: 8
+					}
+				}}>
+					<h1>We <BlueSpan>design and build</BlueSpan> <DarkGraySpan>website that</DarkGraySpan> turn visitors into customers.</h1>
+				</GridItem>
+				<GridItem
+				gridPosition={{
+					desktop: {
+						columnStart: 3,
+						columnEnd: 4,
+					},
+					tablet: {
+						columnStart: 1,
+						columnEnd: 6
+					},
+					mobile: {
+						columnStart: 1,
+						columnEnd: 6
+					}
+				}}>
+					<div>Our work reflects your brand and works to turn visitors into leads, customers, and subscribers.</div>
+					<PrimaryButton hasArrow noBorder mt="32px" onClick={() => openContactForm2()}>Contact Us</PrimaryButton>
+				</GridItem>
+			</MainContainer>
+			
 		</div>
 	)
 }

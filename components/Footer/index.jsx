@@ -1,17 +1,14 @@
 import Link from "next/link"
+import Image from "next/image"
 import { withTheme } from "styled-components"
 
-import { FooterButton } from "../buttons"
+import { PrimaryButton } from "../CustomButtons"
 import GridContainer from "../GridContainer"
 import GridItem from "../GridItem"
 
-import {FooterWrapper, FooterLinkItem, SocialMediaAreaButtons, SocialMediaLinkStyles, FooterAddressText, MailFooterAddress, FooterSocialMediaArea} from "./styles"
-// import { useRouter } from "next/router"
+import linkedinLogo from '/public/assets/linkedin.svg'
 
-// const currentPageFooterLink = {
-//     color: '#0070f3',
-//     textDecoration: 'underline'
-// }
+import {FooterWrapper, FooterLinkItem, SocialMediaAreaButtons, SocialMediaLinkStyles, FooterAddressText, MailFooterAddress, FooterSocialMediaArea} from "./styles"
 
 // Todos los elementos del footer
 const footerMenuItemStyles = {
@@ -25,9 +22,11 @@ const bottomFooterArea = {
 	marginTop: '120px',
 }
 
-const Footer = () => {
+const Footer = ( props ) => {
 
-	// const  { asPath } = useRouter();
+	const openContactForm2 = () => {
+		props.openContactForm();
+	}
 
 	return (
 		<FooterWrapper>
@@ -68,7 +67,7 @@ const Footer = () => {
 						columnEnd:7
 					}
 				}}>
-					<FooterButton type='button'>Let`s talk</FooterButton>
+					<PrimaryButton mt='30px' onClick={() => openContactForm2()}>Let`s talk</PrimaryButton>
 				</GridItem>
 
 				<GridItem style={{...footerMenuItemStyles}} gridPosition={{
@@ -88,7 +87,6 @@ const Footer = () => {
 					}
 				}}>
 					<Link href='/' passHref>
-						{/* <FooterLinkItem style={ asPath === '/' ? currentPage : '' }> */}
 						<FooterLinkItem>
 							Home
 						</FooterLinkItem>
@@ -223,9 +221,7 @@ const Footer = () => {
 							<MailFooterAddress>Info@urbilabs.com</MailFooterAddress>
 						</Link>
 						<SocialMediaAreaButtons>
-							<FooterSocialMediaLink newTab fileName='twitter.svg' url='http://www.twitter.com'></FooterSocialMediaLink>
-							<FooterSocialMediaLink newTab fileName='instagram.svg' url='http://www.instagram.com'></FooterSocialMediaLink>
-							<FooterSocialMediaLink newTab fileName='linkedin.svg' url='http://www.linkedin.com'></FooterSocialMediaLink>
+							<FooterSocialMediaLink newTab fileName='linkedin.svg' url='https://ar.linkedin.com/company/urbi-digital'></FooterSocialMediaLink>
 						</SocialMediaAreaButtons>
 					</FooterSocialMediaArea>
 				</GridItem>
@@ -239,7 +235,11 @@ const FooterSocialMediaLink = ({fileName, url , newTab}) => {
 	
 	return (
 		<SocialMediaLinkStyles  target={`${newTab ? '_blank' : '_self'}`} href={`${url}`}>
-			<img src={`/assets/${fileName}`}></img>
+			<Image
+				src={linkedinLogo}	
+				alt="LinkedIn Icon"
+				layout="responsive"
+			></Image>
 		</SocialMediaLinkStyles>
 	)
 
