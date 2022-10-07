@@ -3,10 +3,25 @@ import styled from 'styled-components'
 import GridContainer from "../components/GridContainer"
 import GridItem from "../components/GridItem"
 import {PrimaryButton, StyledLink} from "../components/CustomButtons"
+import { useAsideContext } from '../services/AsideContext'
+import pexelsFloDahm from '/public/assets/pexels-flo-dahm-699459.jpg'
+import circularDownArrow from '/public/assets/circular-down-arrow.png'
+import Image from 'next/future/image'
 
 const MainContainer = styled(GridContainer)` 
 	padding-top: 125px; 
 	padding-bottom: 125px; 
+	@media screen and (max-width: ${props => props.theme.breakpoints.tablet}px){
+		padding-top: 90px; 
+		padding-bottom: 90px; 
+	}
+`
+
+const Subtitle = styled.div` 
+	color: ${props => props.theme.colors.subtitleGray};
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 24px;
 `
 
 const BlueSpan = styled.span` 
@@ -17,12 +32,61 @@ const DarkGraySpan = styled.span`
 	color: ${props => props.theme.colors.darkestGray};
 `
 
-export default function Home( props ) {
-
-	const openContactForm2 = () => {
-		console.log(props);
-		props.openContactForm();
+const Pic = styled.div` 
+	position: relative;
+	background: url(${pexelsFloDahm.src});
+	height: 496px;
+	z-index: -1;
+	margin-top: -55px;	
+	margin-right: -32px;	
+	background-size: cover;
+	background-position: bottom;
+    @media screen and (max-width: ${props => props.theme.breakpoints.tablet}px){
+		margin-top: 0;
+		height: 360px;
+		margin-right: -10px;
+   	 	background-repeat: no-repeat;
+		
 	}
+    @media screen and (max-width: ${props => props.theme.breakpoints.mobile}px){
+		height: 246px;
+		
+	}
+`
+
+const BackgroundBorderArea = styled(GridItem)` 
+	margin-right: -32px; 
+	@media screen and (max-width: ${props => props.theme.breakpoints.tablet}px){
+		margin-right: -10px;
+	}
+`
+
+const BackPic = styled.div` 
+	width: 100%;
+	border: 1px solid #347DFE;
+	border-top: 0;
+	z-index: -2;
+	padding-top: 40px;	
+    @media screen and (max-width: ${props => props.theme.breakpoints.tablet}px){
+		padding-top: 30px;
+	}	
+    @media screen and (max-width: ${props => props.theme.breakpoints.mobile}px){
+		padding-top: 20px;
+	}
+`
+
+const CircularArrow = styled(Image)` 
+	margin-left: -24px;
+	margin-top: 350px;
+	position: absolute;
+	@media screen and (max-width: ${props => props.theme.breakpoints.tablet}px){
+		display: none;
+	}	
+`
+
+export default function Home() {
+
+	const { showContactForm } = useAsideContext();
 
 	return (
 		<div>
@@ -42,7 +106,7 @@ export default function Home( props ) {
 					},
 					tablet: {
 						columnStart: 1,
-						columnEnd: 8
+						columnEnd: 10
 					},
 					mobile: {
 						columnStart: 1,
@@ -52,23 +116,94 @@ export default function Home( props ) {
 					<h1>We <BlueSpan>design and build</BlueSpan> <DarkGraySpan>website that</DarkGraySpan> turn visitors into customers.</h1>
 				</GridItem>
 				<GridItem
+					gridPosition={{
+						desktop: {
+							columnStart: 3,
+							columnEnd: 4,
+						},
+						tablet: {
+							columnStart: 1,
+							columnEnd: 6
+						},
+						mobile: {
+							columnStart: 1,
+							columnEnd: 6
+						}
+					}}
+					style={{paddingBottom: '80px'}}
+				>
+					<Subtitle>Our work reflects your brand and works to turn visitors into leads, customers, and subscribers.</Subtitle>
+					<PrimaryButton hasArrow noBorder mt="32px" mobileMb="0" onClick={showContactForm}>Contact Us</PrimaryButton>
+					<StyledLink primary mt="32px" href="/projects">Our Work</StyledLink>
+				</GridItem>
+				
+				<GridItem
 				gridPosition={{
 					desktop: {
-						columnStart: 3,
-						columnEnd: 4,
+						columnStart: 5,
+						columnEnd: 12,
 					},
 					tablet: {
 						columnStart: 1,
-						columnEnd: 6
+						columnEnd: 10
 					},
 					mobile: {
 						columnStart: 1,
-						columnEnd: 6
+						columnEnd: 8
+					}
+				}}
+				style={{zIndex: '-1'}}
+				>
+					<CircularArrow
+						src={circularDownArrow}
+						height="48px"
+						width="48px"
+						alt="Down Arrow"
+						layout="intrinsic"
+					/>
+					<Pic/>
+				</GridItem>
+				
+				<BackgroundBorderArea
+					gridPosition={{
+						desktop: {
+							columnStart: 6,
+							columnEnd: 12,
+						},
+						tablet: {
+							columnStart: 3,
+							columnEnd: 10
+						},
+						mobile: {
+							columnStart: 3,
+							columnEnd: 8
+						}
+					}}
+				>
+					<BackPic/>
+				</BackgroundBorderArea>
+						
+
+
+				<GridItem
+				gridPosition={{
+					desktop: {
+						columnStart: 1,
+						columnEnd: 12,
+					},
+					tablet: {
+						columnStart: 1,
+						columnEnd: 10
+					},
+					mobile: {
+						columnStart: 1,
+						columnEnd: 8
 					}
 				}}>
-					<div>Our work reflects your brand and works to turn visitors into leads, customers, and subscribers.</div>
-					<PrimaryButton hasArrow noBorder mt="32px" onClick={() => openContactForm2()}>Contact Us</PrimaryButton>
+					sdsadas
 				</GridItem>
+
+
 			</MainContainer>
 			
 		</div>

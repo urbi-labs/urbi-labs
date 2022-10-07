@@ -19,14 +19,22 @@ export const PrimaryButton = styled.button`
 		content: ${(props) => (props.hasArrow && `url(${whiteNextArrow.src})`)};
 	}
 	@media screen and (max-width: ${props => props.theme.breakpoints.tablet}px){
-		margin-bottom: 60px;
+		margin-bottom: ${props => props.mobileMb ? props.mobileMb : '60px'};
+		max-width: 194px;
 	}
 `
 
 export const StyledLink = styled.a`
 	color: ${props => props.primary ? props.theme.colors.blue : '#fff'};
+	margin-top: ${props => props.mt ? props.mt : '30px'};
+	text-align: ${props => props.align ? props.align : 'center'};
+	display: block;
+	font-weight: 600;
 	&:after{
 		padding-left: 10px;
 		content: ${(props) => (props.hasArrow && (props.primary ? `url(${blueNextArrow.src})` : `url(${whiteNextArrow.src})`))};
+	}
+	@media screen and (max-width: ${props => props.theme.breakpoints.tablet}px){
+		max-width: 194px;
 	}
 `

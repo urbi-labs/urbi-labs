@@ -1,26 +1,30 @@
 import Image from 'next/image';
 import { useCallback, useEffect } from 'react';
+import { useAsideContext } from '../../services/AsideContext';
 import GridContainer from '../GridContainer';
 import GridItem from '../GridItem';
 import {AsideContainer, CloseIcon, CloseNav, ComplementArea, ContentContainer, MainContentArea} from './styles'
 import closeMenuIcon from '/public/assets/close-menu-icon.svg'
 
-const Aside = ( {children, onClose} ) => {
+const Aside = ( {children} ) => {
 
+  const { isContactFormOpen, closeContactForm, closeMenu, isMenuOpen } = useAsideContext();
   // Funcion para cierre del Aside
   const handleCloseClick = (e) => {
     
     e.preventDefault();
-    onClose();
+    isContactFormOpen && closeContactForm();
+    isMenuOpen && closeMenu();
 
   };
 
   // Funcion para cierre Aside al apretar tecla ESC
   const escFunction = useCallback((event) => {
     if (event.key === "Escape") {
-      onClose()
+      isContactFormOpen && closeContactForm();
+      isMenuOpen && closeMenu();
     }
-  }, []);
+  }, [isContactFormOpen,isMenuOpen,closeContactForm,closeMenu]);
 
   // Llamada al evento de cierre al apretar ESC
   useEffect(() => {
@@ -29,7 +33,7 @@ const Aside = ( {children, onClose} ) => {
     return () => {
       document.removeEventListener("keydown", escFunction, false);
     };
-  }, []);
+  }, [escFunction]);
   
   return (
     
