@@ -1,10 +1,9 @@
 import styled from "styled-components"
 
-export const Nav = styled.div`
+export const Nav = styled.nav`
     border-bottom: solid 1px ${props => props.theme.colors.lightestGray};
     height: 75px;
-    
-`;
+`
 
 export const SubMenuNav = styled.div`   
     padding-top: 50px;

@@ -1,9 +1,19 @@
 import Link from 'next/link'
 import { withTheme } from 'styled-components'
+import { useAsideContext } from '../../services/AsideContext'
 import GridContainer from '../GridContainer'
 import GridItem from '../GridItem'
 
 const MobileMenu = (props) => {
+
+    const {closeMenu, showContactForm} = useAsideContext();
+
+    // Funcion para el form de contacto mobile. Cierra el Menu y abre el Contact Form
+	const handleContactFormClick = () => {
+        closeMenu()
+		showContactForm();
+    }
+
 
     const itemStyle = {
         color: props.theme.colors.blue,
@@ -119,7 +129,7 @@ const MobileMenu = (props) => {
             
         >
             <Link href="">
-                <a onClick={props.handleContactFormClick}>Contact Us</a>
+                <a onClick={handleContactFormClick}>Contact Us</a>
             </Link>
         </GridItem>
     </GridContainer>

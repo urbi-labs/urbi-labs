@@ -8,7 +8,7 @@ export const AsideContainer = styled.aside`
     z-index: 999;
     display: flex;
     flex-direction: row;
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     overflow: auto;

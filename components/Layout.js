@@ -4,35 +4,29 @@ import LayoutBackground from './Background'
 import { useState } from 'react';
 import AsideContainer from './Aside';
 import ContactForm from './ContactForm';
+import { useAsideContext } from '../services/AsideContext';
+import MobileMenu from './Navbar/MobileMenu';
 
 export default function Layout({ children }) {
+
+	const { showContactForm, isContactFormOpen, isMenuOpen } = useAsideContext();
 	
-	//Aside de contacto abierto o cerrado
-	const [showContactForm, setShowContactForm] = useState(false);
-
-	// Funcion para el form de contacto mobile. Cierra el Menu y abre el Contact Form
-	const openContactForm = () => {
-        setShowContactForm(true);
-		document.body.style.overflow = 'hidden';
-    }
-
-	// Funcion para el form de contacto mobile. Cierra el Menu y abre el Contact Form
-	const closeContactForm = () => {
-        setShowContactForm(false);
-		document.body.style.overflow = 'auto';
-    }
-
 	return (
 		<>
 			<LayoutBackground />
-			<Navbar openContactForm={openContactForm} closeContactForm={closeContactForm}/>
+			<Navbar openContactForm={showContactForm}/>
 			<main>{children}</main>
-			<Footer openContactForm={openContactForm}/>
-			{showContactForm && (
-				<AsideContainer 
-					onClose={() => closeContactForm()}
-				>
+			<Footer openContactForm={showContactForm}/>
+			{isContactFormOpen && (
+				<AsideContainer>
 					<ContactForm></ContactForm>
+				</AsideContainer>
+				
+			)}
+			{isMenuOpen && (
+				<AsideContainer>
+					<MobileMenu 
+					></MobileMenu>
 				</AsideContainer>
 				
 			)}

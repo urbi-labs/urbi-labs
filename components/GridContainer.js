@@ -1,8 +1,8 @@
 import styled from "styled-components"
 
 const Grid = styled.div`
-	width: 100vw;
-	max-width: 1295px;
+	/* width: 100vw; */
+	max-width: 1360px;
 	margin: 0 auto;
 	padding: 0 32px;
 	display: grid;

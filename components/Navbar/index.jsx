@@ -13,8 +13,8 @@ import logo from '/public/assets/urbi-labs.png'
 import mobileMenuIcon from '/public/assets/mobile-menu-icon.svg'
 import downArrow from '/public/assets/down-arrow.svg'
 import { useRouter } from "next/router"
-import AsideContainer from "../Aside"
 import MobileMenu from "./MobileMenu"
+import { useAsideContext } from "../../services/AsideContext"
 
 
 
@@ -32,31 +32,15 @@ const Navbar = ( props ) => {
 		if(size.width > props.theme.breakpoints.tablet) {
 			setIsMobile(false);
 		} 
+	}, [size,props.theme.breakpoints.tablet]);
 
-	}, [size]);
-
-	//Aside del Mobile menu abierto o cerrado
-	const [showMenu, setShowMenu] = useState(false);
-
-	const openMenu = () => {
-		document.body.style.overflow = 'hidden';
-		setShowMenu(true);
-	}
-
-	const closeMenu = () => {
-		document.body.style.overflow = 'auto';
-		setShowMenu(false);
-	}
+	const {showMenu, closeMenu, showContactForm} = useAsideContext();
 
 	// Funcion para el form de contacto mobile. Cierra el Menu y abre el Contact Form
 	const handleContactFormClick = () => {
-        setShowMenu(false);
-		openContactForm2();
+        closeMenu()
+		showContactForm();
     }
-
-	const openContactForm2 = () => {
-		props.openContactForm();
-	}
 
 	// Manejo del submenu de Services
 	const [showServicesSubmenuNav, setShowServicesSubmenuNav] = useState(false);
@@ -246,7 +230,7 @@ const Navbar = ( props ) => {
 							}
 						}}
 						style={contactUsStyles}
-						onClick={() => openContactForm2()}
+						onClick={() => handleContactFormClick()}
 					>
 						<MenuItem className='contact-us' >Contact us</MenuItem>
 					</GridItem>					
@@ -398,7 +382,7 @@ const Navbar = ( props ) => {
 						style={{position: 'relative'}}
 					>
 					<MobileMenuIcon
-						onClick={() => openMenu()}
+						onClick={showMenu}
 					>
 						<Image
 							layout="responsive" 
@@ -408,18 +392,6 @@ const Navbar = ( props ) => {
 					</MobileMenuIcon>
 				</GridItem>
 			</GridContainer>	
-			{showMenu && (
-				<AsideContainer 
-					onClose={() => closeMenu()}
-					
-				>
-					<MobileMenu 
-						onClick={() => closeMenu()}
-						handleContactFormClick={handleContactFormClick}
-					></MobileMenu>
-				</AsideContainer>
-				
-			)}
 		</Nav>
 	)
 
@@ -437,7 +409,7 @@ const NavbarItem = (props) => {
 	return (
 		<Link href={props.href}>
 			<GridItem {...props} style={{...menuItemStyles, ...props.style}}>
-				<MenuItem className={props.className} href={props.href}>
+				<MenuItem className={props.className}>
 						{props.children}
 				</MenuItem>
 			</GridItem>

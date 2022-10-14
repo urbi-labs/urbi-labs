@@ -26,7 +26,7 @@ const LayoutBackground = (props) => {
 		} else if (size.width <= props.theme.breakpoints.mobile) {
 			setBoxcount(7)
 		}
-	}, [size]);
+	}, [size,props.theme.breakpoints.tablet,props.theme.breakpoints.mobile]);
 
 	const backgroundGridStyles = {
 		position: 'fixed',

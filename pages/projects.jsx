@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import React from 'react'
+import PageHero from '../components/PageHero'
 
 const ProjectsPage = () => {
   return (
@@ -10,7 +11,11 @@ const ProjectsPage = () => {
           <link rel="icon" href="/favicon.ico" />
       </Head>
   
-      <div>ProjectsPage</div>
+      <PageHero 
+        grayText="We work to create" 
+        blueText="unique projects" 
+        subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      /> 
     </div>
   )
 }

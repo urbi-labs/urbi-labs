@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import PageHero from '../../components/PageHero'
 
 const BlogPage = () => {
   return (
@@ -9,7 +10,11 @@ const BlogPage = () => {
           <link rel="icon" href="/favicon.ico" />
       </Head>
   
-      <div>BlogPage</div>
+      <PageHero 
+        grayText="Many things happen" 
+        blueText="in the world" 
+        subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      /> 
     </div>
   )
 }
