@@ -67,7 +67,7 @@ const Footer = ( props ) => {
 						columnEnd:7
 					}
 				}}>
-					<PrimaryButton mt='30px' onClick={() => openContactForm2()}>Let`s talk</PrimaryButton>
+					<PrimaryButton mt='30px' onClick={() => openContactForm2()}>Let's talk</PrimaryButton>
 				</GridItem>
 
 				<GridItem style={{...footerMenuItemStyles}} gridPosition={{

@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import GridContainer from "../GridContainer";
 import { MobileMenuIcon, Nav } from "../Navbar/styles";
 
 export const AsideContainer = styled.aside`
@@ -11,7 +10,27 @@ export const AsideContainer = styled.aside`
     position: fixed;
     top: 0;
     bottom: 0;
-    overflow: auto;
+    overflow: hidden;
+
+	&.contactForm-enter {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+
+	&.contactForm-enter-active {
+		opacity: 1;
+		transform: translateX(0);
+		transition: opacity 300ms, transform 300ms;
+	}
+	&.contactForm-exit {
+		opacity: 1;
+	}
+
+	&.contactForm-exit-active {
+		opacity: 0;
+		transform: scale(0.9);
+		transition: opacity 300ms, transform 300ms;
+	}
     
     @media screen and (max-width: ${props => props.theme.breakpoints.tablet}px){
         flex-direction: column;
@@ -20,7 +39,7 @@ export const AsideContainer = styled.aside`
 
 export const ComplementArea = styled.div` 
     flex: 1;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(1, 46, 127, 0.3);
 
     @media screen and (max-width: ${props => props.theme.breakpoints.tablet}px){
         height: 150px;        
@@ -32,7 +51,7 @@ export const ComplementArea = styled.div`
 export const MainContentArea = styled.div` 
     width: 520px;     
     background-color: #fff;
-    
+	overflow: scroll;
     @media screen and (max-width: ${props => props.theme.breakpoints.tablet}px){
         width: 100%;
         flex: 1;
