@@ -1,4 +1,4 @@
-import {CSSTransition} from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 import Navbar from './Navbar'
 import Footer from './Footer'
 import LayoutBackground from './Background'
@@ -25,9 +25,9 @@ export default function Layout({ children }) {
 				classNames="contactForm"
 				unmountOnExit
 			>
-					<AsideContainer>
-						<ContactForm></ContactForm>
-					</AsideContainer>
+				<AsideContainer>
+					<ContactForm></ContactForm>
+				</AsideContainer>
 			</CSSTransition>
 
 			<CSSTransition

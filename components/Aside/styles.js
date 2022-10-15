@@ -14,22 +14,20 @@ export const AsideContainer = styled.aside`
 
 	&.contactForm-enter {
 		opacity: 0;
-		transform: scale(0.9);
 	}
 
 	&.contactForm-enter-active {
 		opacity: 1;
-		transform: translateX(0);
-		transition: opacity 300ms, transform 300ms;
+		transition: opacity 300ms;
 	}
+
 	&.contactForm-exit {
 		opacity: 1;
 	}
 
 	&.contactForm-exit-active {
 		opacity: 0;
-		transform: scale(0.9);
-		transition: opacity 300ms, transform 300ms;
+		transition: opacity 300ms;
 	}
     
     @media screen and (max-width: ${props => props.theme.breakpoints.tablet}px){
@@ -38,8 +36,30 @@ export const AsideContainer = styled.aside`
 `;
 
 export const ComplementArea = styled.div` 
-    flex: 1;
+    flex: 1 1 100%;
     background: rgba(1, 46, 127, 0.3);
+
+	${AsideContainer}.contactForm-enter & {
+		transform: translateX(-40px);
+		opacity: 0;
+	}
+
+	${AsideContainer}.contactForm-enter-active & {
+		transform: translateX(0);
+		opacity: 1;
+		transition: transform 300ms, opacity 300ms;
+	}
+
+	${AsideContainer}.contactForm-exit & {
+		transform: translateX(0);
+		opacity: 1;
+	}
+
+	${AsideContainer}.contactForm-exit-active & {
+		transform: translateX(-40px);
+		opacity: 0;
+		transition: transform 300ms, opacity 300ms;
+	}
 
     @media screen and (max-width: ${props => props.theme.breakpoints.tablet}px){
         height: 150px;        
@@ -49,9 +69,32 @@ export const ComplementArea = styled.div`
 `
 
 export const MainContentArea = styled.div` 
-    width: 520px;     
     background-color: #fff;
 	overflow: scroll;
+	flex: 1 0 520px;
+
+	${AsideContainer}.contactForm-enter & {
+		transform: translateX(40px);
+		opacity: 0;
+	}
+
+	${AsideContainer}.contactForm-enter-active & {
+		transform: translateX(0);
+		opacity: 1;
+		transition: transform 300ms, opacity 300ms;
+	}
+
+	${AsideContainer}.contactForm-exit & {
+		transform: translateX(0);
+		opacity: 1;
+	}
+
+	${AsideContainer}.contactForm-exit-active & {
+		transform: translateX(40px);
+		opacity: 0;
+		transition: transform 300ms, opacity 300ms;
+	}
+
     @media screen and (max-width: ${props => props.theme.breakpoints.tablet}px){
         width: 100%;
         flex: 1;
