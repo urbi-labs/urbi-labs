@@ -12,20 +12,26 @@ export const AsideContainer = styled.aside`
     bottom: 0;
     overflow: hidden;
 
-	&.contactForm-enter {
+	// Contact Form Enter & Exit Animations
+
+	&.contactForm-enter,
+	&.mobileMenu-enter {
 		opacity: 0;
 	}
 
-	&.contactForm-enter-active {
+	&.contactForm-enter-active,
+	&.mobileMenu-enter-active {
 		opacity: 1;
 		transition: opacity 300ms;
 	}
 
-	&.contactForm-exit {
+	&.contactForm-exit,
+	&.mobileMenu-exit {
 		opacity: 1;
 	}
 
-	&.contactForm-exit-active {
+	&.contactForm-exit-active,
+	&.mobileMenu-exit-active {
 		opacity: 0;
 		transition: opacity 300ms;
 	}
@@ -73,6 +79,8 @@ export const MainContentArea = styled.div`
 	overflow: scroll;
 	flex: 1 0 520px;
 
+	// Contact Form Enter & Exit Animations
+
 	${AsideContainer}.contactForm-enter & {
 		transform: translateX(40px);
 		opacity: 0;
@@ -93,6 +101,30 @@ export const MainContentArea = styled.div`
 		transform: translateX(40px);
 		opacity: 0;
 		transition: transform 300ms, opacity 300ms;
+	}
+
+	// Mobile Menu Enter & Exit Animations
+
+	${AsideContainer}.mobileMenu-enter & {
+		transform: translateY(40px);
+		opacity: 0;
+	}
+
+	${AsideContainer}.mobileMenu-enter-active & {
+		transform: translateY(0);
+		opacity: 1;
+		transition: transform 200ms, opacity 200ms;
+	}
+
+	${AsideContainer}.mobileMenu-exit & {
+		transform: translateY(0);
+		opacity: 1;
+	}
+
+	${AsideContainer}.mobileMenu-exit-active & {
+		transform: translateY(40px);
+		opacity: 0;
+		transition: transform 200ms, opacity 200ms;
 	}
 
     @media screen and (max-width: ${props => props.theme.breakpoints.tablet}px){
