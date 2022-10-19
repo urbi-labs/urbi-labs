@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { ScrollPage } from "react-scroll-motion";
 import styled from 'styled-components'
 import GridContainer from "../components/GridContainer"
 import GridItem from "../components/GridItem"
@@ -90,7 +91,7 @@ export default function Home() {
 	const { showContactForm } = useAsideContext();
 
 	return (
-		<div>
+		<>
 
 			<Head>
 				<title>Urbi Labs</title>
@@ -190,6 +191,6 @@ export default function Home() {
 			index='1'
 			/>
 			
-		</div>
+		</>
 	)
 }
