@@ -18,14 +18,13 @@ export const AnimatedLink = styled(GridItem)`
 	position: relative;
 	cursor: pointer;
 	padding-left: 118px;
-
 	.titleContainer {
 		padding: 32px 0;
 	}
 
 	.title,
 	.category {
-		transition: all 0.5s;
+		transition: color 0.5s;
 	}
 
 	.title {
@@ -49,6 +48,7 @@ export const AnimatedLink = styled(GridItem)`
 
 export const CaseStudyImageContainer = styled(GridItem)`
 	transition: width 0.5s;
+	transition-delay: 0.2s;
 	width: 100%;
 	height: 400px;
 	position: relative;
