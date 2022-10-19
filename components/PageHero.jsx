@@ -47,7 +47,10 @@ const PageHero = ( props ) => {
                 }
             }}
         >
-            <h1><DarkGraySpan>{props.grayText}</DarkGraySpan> <BlueSpan>{props.blueText}</BlueSpan><DarkGraySpan>.</DarkGraySpan></h1>
+            <h1>
+				<DarkGraySpan>{props.grayText}</DarkGraySpan> <BlueSpan>{props.blueText}</BlueSpan>
+				<DarkGraySpan>.</DarkGraySpan>
+			</h1>
         </GridItem>
         <GridItem 
             gridPosition={{

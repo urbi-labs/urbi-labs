@@ -4,6 +4,7 @@ import GridContainer from "../components/GridContainer"
 import GridItem from "../components/GridItem"
 import {PrimaryButton, StyledLink} from "../components/CustomButtons"
 import { useAsideContext } from '../services/AsideContext'
+import CaseStudyLink from '../components/CaseStudyLink'
 import pexelsFloDahm from '/public/assets/pexels-flo-dahm-699459.jpg'
 import circularDownArrow from '/public/assets/circular-down-arrow.png'
 import Image from 'next/future/image'
@@ -181,30 +182,13 @@ export default function Home() {
 					}}
 				>
 					<BackPic/>
-				</BackgroundBorderArea>
-						
-
-
-				<GridItem
-				gridPosition={{
-					desktop: {
-						columnStart: 1,
-						columnEnd: 12,
-					},
-					tablet: {
-						columnStart: 1,
-						columnEnd: 10
-					},
-					mobile: {
-						columnStart: 1,
-						columnEnd: 8
-					}
-				}}>
-					sdsadas
-				</GridItem>
-
-
+				</BackgroundBorderArea>	
+				
 			</MainContainer>
+
+			<CaseStudyLink
+			index='1'
+			/>
 			
 		</div>
 	)

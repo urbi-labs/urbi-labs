@@ -22,7 +22,7 @@ export const AsideContainer = styled.aside`
 	&.contactForm-enter-active,
 	&.mobileMenu-enter-active {
 		opacity: 1;
-		transition: opacity 300ms;
+		transition: opacity 200ms;
 	}
 
 	&.contactForm-exit,
@@ -33,7 +33,7 @@ export const AsideContainer = styled.aside`
 	&.contactForm-exit-active,
 	&.mobileMenu-exit-active {
 		opacity: 0;
-		transition: opacity 300ms;
+		transition: opacity 200ms;
 	}
     
     @media screen and (max-width: ${props => props.theme.breakpoints.tablet}px){
@@ -46,14 +46,14 @@ export const ComplementArea = styled.div`
     background: rgba(1, 46, 127, 0.3);
 
 	${AsideContainer}.contactForm-enter & {
-		transform: translateX(-40px);
+		transform: translateX(-64px);
 		opacity: 0;
 	}
 
 	${AsideContainer}.contactForm-enter-active & {
 		transform: translateX(0);
 		opacity: 1;
-		transition: transform 300ms, opacity 300ms;
+		transition: transform 200ms, opacity 200ms;
 	}
 
 	${AsideContainer}.contactForm-exit & {
@@ -62,9 +62,9 @@ export const ComplementArea = styled.div`
 	}
 
 	${AsideContainer}.contactForm-exit-active & {
-		transform: translateX(-40px);
+		transform: translateX(-64px);
 		opacity: 0;
-		transition: transform 300ms, opacity 300ms;
+		transition: transform 200ms, opacity 200ms;
 	}
 
     @media screen and (max-width: ${props => props.theme.breakpoints.tablet}px){
@@ -82,14 +82,14 @@ export const MainContentArea = styled.div`
 	// Contact Form Enter & Exit Animations
 
 	${AsideContainer}.contactForm-enter & {
-		transform: translateX(40px);
+		transform: translateX(64px);
 		opacity: 0;
 	}
 
 	${AsideContainer}.contactForm-enter-active & {
 		transform: translateX(0);
 		opacity: 1;
-		transition: transform 300ms, opacity 300ms;
+		transition: transform 200ms, opacity 200ms;
 	}
 
 	${AsideContainer}.contactForm-exit & {
@@ -98,9 +98,9 @@ export const MainContentArea = styled.div`
 	}
 
 	${AsideContainer}.contactForm-exit-active & {
-		transform: translateX(40px);
+		transform: translateX(64px);
 		opacity: 0;
-		transition: transform 300ms, opacity 300ms;
+		transition: transform 200ms, opacity 200ms;
 	}
 
 	// Mobile Menu Enter & Exit Animations
