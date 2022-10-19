@@ -1,32 +1,30 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { useRef, useState, useEffect } from 'react';
-import useWindowSize from '../../services/windowSize';
+import { useState } from 'react';
 import GridContainer from '../GridContainer';
-import GridItem from '../GridItem';
 import { CaseStudyItem, AnimatedLink, CaseStudyImageContainer } from './styles'
 
 import pexelsFloDahm from '/public/assets/pexels-flo-dahm-699459.jpg'
 
 const CaseStudyLink = (props) => {
 
-	const [animatedLinkWidth, setAnimatedLinkWidth] = useState(0)
-	const positionLeft = parseInt(props.index) % 2 === 0 ? false : true
+	const router = useRouter()
 
-	const animatedLink = useRef(null)
-	const windowSize = useWindowSize()
+	const [hovered, setHovered] = useState(false);
+	const positionLeft = parseInt(props.index) % 2 === 0 ? false : true
 
 	const CaseStudyLinkPosition = {
 		desktop: {
 			columnStart: 1,
-			columnEnd: 6,
+			columnEnd: 8,
 		},
 		tablet: {
 			columnStart: 1,
-			columnEnd: 7
+			columnEnd: 9
 		},
 		mobile: {
-			columnStart: 11,
+			columnStart: 1,
 			columnEnd: 12
 		}
 	}
@@ -34,49 +32,54 @@ const CaseStudyLink = (props) => {
 	const CaseStudyImagePosition = {
 		desktop: {
 			columnStart: 1,
-			columnEnd: 5,
+			columnEnd: 7,
 		},
 		tablet: {
 			columnStart: 1,
 			columnEnd: 7
 		},
 		mobile: {
-			columnStart: 11,
+			columnStart: 1,
 			columnEnd: 12
 		}
 	}
 
-	useEffect(() => {
-		setAnimatedLinkWidth(animatedLink.current.offsetWidth);
-	}, [windowSize]);
-
 	return (
 
-		<Link href="#">
-			<CaseStudyItem>
-				<GridContainer>
-					<GridItem gridPosition={CaseStudyImagePosition}>
+		<CaseStudyItem>
 
-						<CaseStudyImageContainer href='#'>
+			<GridContainer>
 
-							<Image
-								src={pexelsFloDahm}
-								layout='fill'
-								objectFit='cover'
-							/>
+				<CaseStudyImageContainer
+					gridPosition={CaseStudyImagePosition}
+					onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
+					hovered={hovered}
+				>
+					<Link href="#">
+						<Image
+							src={pexelsFloDahm}
+							layout='fill'
+							objectFit='cover'
+						/>
+					</Link>
+				</CaseStudyImageContainer>
 
-						</CaseStudyImageContainer>
+				<AnimatedLink
+					gridPosition={CaseStudyLinkPosition}
+					onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
+					hovered={hovered}
+					onClick={() => router.push('#')}
+				>
+					<div className="titleContainer">
+						<p className="h2 title">Feis.link</p>
+						<p className="category">Web Development</p>
+					</div>
+				</AnimatedLink>
 
-					</GridItem>
+			</GridContainer>
 
-					<GridItem gridPosition={CaseStudyLinkPosition}>
-						<AnimatedLink href="#" passHref>
-							<p className="h2" ref={animatedLink}>{JSON.stringify(positionLeft)}</p>
-						</AnimatedLink>
-					</GridItem>
-				</GridContainer>
-			</CaseStudyItem>
-		</Link>
+		</CaseStudyItem>
+
 	)
 }
 
