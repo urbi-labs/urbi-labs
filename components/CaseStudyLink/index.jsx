@@ -6,15 +6,15 @@ import Link from 'next/link';
 import { useState } from 'react';
 import GridContainer from '../GridContainer';
 
+
 const Animator = dynamic(
 	import("react-scroll-motion").then((it) => it.Animator),
 	{ ssr: false }
 );
+
 import { batch, Fade, FadeIn, FadeOut, Move, MoveIn, MoveOut, Sticky, StickyIn, StickyOut, Zoom, ZoomIn, ZoomOut } from "react-scroll-motion";
 
-
-
-import { CaseStudyItem, AnimatedLink, CaseStudyImageContainer } from './styles'
+import { CaseStudyItem, BoxLink, CaseStudyImageContainer, CtaButton } from './styles'
 
 import pexelsFloDahm from '/public/assets/pexels-flo-dahm-699459.jpg'
 
@@ -32,7 +32,7 @@ const CaseStudyLink = (props) => {
 		},
 		tablet: {
 			columnStart: 1,
-			columnEnd: 9
+			columnEnd: 8
 		},
 		mobile: {
 			columnStart: 1,
@@ -77,17 +77,23 @@ const CaseStudyLink = (props) => {
 						</Link>
 					</CaseStudyImageContainer>
 
-					<AnimatedLink
+					<BoxLink
 						gridPosition={CaseStudyLinkPosition}
 						onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
 						hovered={hovered}
 						onClick={() => router.push('#')}
 					>
-						<div className="titleContainer">
-							<p className="h2 title">Poject Name</p>
-							<p className="category">Web Development</p>
+						<div className="textContainer">
+							<div>
+								<p className="h2 caseStudy__Title">Project Name</p>
+								<p className="caseStudy__Category">Web Development</p>
+							</div>
+							<CtaButton primary={!hovered} hasArrow>
+								Read Case Study
+							</CtaButton>
 						</div>
-					</AnimatedLink>
+
+					</BoxLink>
 
 				</GridContainer>
 

@@ -16,33 +16,33 @@ export default function Layout({ children }) {
 	return (
 		<>
 
-				<LayoutBackground />
-				<Navbar openContactForm={showContactForm} />
-				<main>{children}</main>
-				<Footer openContactForm={showContactForm} />
+			<LayoutBackground />
+			<Navbar openContactForm={showContactForm} />
+			<main>{children}</main>
+			<Footer openContactForm={showContactForm} />
 
-				<CSSTransition
-					in={isContactFormOpen}
-					timeout={300}
-					classNames="contactForm"
-					unmountOnExit
-				>
-					<AsideContainer>
-						<ContactForm></ContactForm>
-					</AsideContainer>
-				</CSSTransition>
+			<CSSTransition
+				in={isContactFormOpen}
+				timeout={300}
+				classNames="contactForm"
+				unmountOnExit
+			>
+				<AsideContainer>
+					<ContactForm></ContactForm>
+				</AsideContainer>
+			</CSSTransition>
 
-				<CSSTransition
-					in={isMenuOpen}
-					timeout={300}
-					classNames="mobileMenu"
-					unmountOnExit
-				>
-					<AsideContainer>
-						<MobileMenu
-						></MobileMenu>
-					</AsideContainer>
-				</CSSTransition>
+			<CSSTransition
+				in={isMenuOpen}
+				timeout={300}
+				classNames="mobileMenu"
+				unmountOnExit
+			>
+				<AsideContainer>
+					<MobileMenu
+					></MobileMenu>
+				</AsideContainer>
+			</CSSTransition>
 
 		</>
 	)

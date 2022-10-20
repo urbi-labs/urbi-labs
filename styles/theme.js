@@ -7,6 +7,7 @@ const theme = {
 		subtitleGray: "#75828A"
 	},
 	breakpoints: {
+		desktop: 1200,
 		tablet: 768,
 		mobile: 480
 	}
