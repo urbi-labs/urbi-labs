@@ -19,11 +19,13 @@ export const BoxLink = styled(GridItem)`
 
 	.textContainer {
 		display: grid;
-		grid-template-columns: 5fr 2fr;
+		grid-template-columns: 4fr 3fr;
 		grid-template-rows: 1fr;
 		padding: 32px 0;
 		padding-left: 5%;
 		padding-right: 5%;
+		width: 100%;
+		direction: ltr;
 	}
 
 	.caseStudy__Title,
@@ -66,7 +68,6 @@ export const CtaButton = styled(StyledLink)`
 	white-space: nowrap;
     margin-top: 0;
     align-self: center;
-
 	@media screen and (max-width: ${props => props.theme.breakpoints.tablet}px) {
 		text-align: left;
 	}
@@ -74,7 +75,7 @@ export const CtaButton = styled(StyledLink)`
 `;
 
 export const CaseStudyImageContainer = styled(GridItem)`
-	transition: width 0.5s;
+	transition: width 0.5s, transform 0.465s;
 	width: 100%;
 	height: 400px;
 	position: relative;
@@ -85,6 +86,6 @@ export const CaseStudyImageContainer = styled(GridItem)`
 	@media screen and (min-width: ${props => props.theme.breakpoints.tablet}px) {
 		${props => props.hovered && css`
 			width: 150%;
-		`}	
+		`}
 	}
 `;

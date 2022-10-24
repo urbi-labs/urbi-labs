@@ -28,7 +28,7 @@ const CaseStudyLink = (props) => {
 	const CaseStudyLinkPosition = {
 		desktop: {
 			columnStart: 1,
-			columnEnd: 8,
+			columnEnd: 8
 		},
 		tablet: {
 			columnStart: 1,
@@ -43,7 +43,7 @@ const CaseStudyLink = (props) => {
 	const CaseStudyImagePosition = {
 		desktop: {
 			columnStart: 1,
-			columnEnd: 7,
+			columnEnd: 6,
 		},
 		tablet: {
 			columnStart: 1,
@@ -61,12 +61,15 @@ const CaseStudyLink = (props) => {
 
 			<CaseStudyItem>
 
-				<GridContainer>
+				<GridContainer style={{
+					direction: !positionLeft && 'rtl'
+				}}>
 
 					<CaseStudyImageContainer
 						gridPosition={CaseStudyImagePosition}
 						onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
 						hovered={hovered}
+						positionLeft={positionLeft}
 					>
 						<Link href="#">
 							<Image
@@ -89,7 +92,7 @@ const CaseStudyLink = (props) => {
 								<p className="caseStudy__Category">Web Development</p>
 							</div>
 							<CtaButton primary={!hovered} hasArrow>
-								Read Case Study
+								Read More
 							</CtaButton>
 						</div>
 

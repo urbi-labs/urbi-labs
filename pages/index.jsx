@@ -190,6 +190,14 @@ export default function Home() {
 			<CaseStudyLink
 			index='1'
 			/>
+
+			<CaseStudyLink
+			index='2'
+			/>
+
+			<CaseStudyLink
+			index='3'
+			/>
 			
 		</>
 	)
