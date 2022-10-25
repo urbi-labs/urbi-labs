@@ -3,12 +3,18 @@ import { ScrollPage } from "react-scroll-motion";
 import styled from 'styled-components'
 import GridContainer from "../components/GridContainer"
 import GridItem from "../components/GridItem"
-import {PrimaryButton, StyledLink} from "../components/CustomButtons"
+import { PrimaryButton, StyledLink } from "../components/CustomButtons"
 import { useAsideContext } from '../services/AsideContext'
 import CaseStudyLink from '../components/CaseStudyLink'
 import pexelsFloDahm from '/public/assets/pexels-flo-dahm-699459.jpg'
 import circularDownArrow from '/public/assets/circular-down-arrow.png'
 import Image from 'next/future/image'
+import CtaBanner from '../components/Banner';
+import { Autoplay, FreeMode } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import 'swiper/css';
+import 'swiper/css/bundle';
 
 const MainContainer = styled(GridContainer)` 
 	padding-top: 125px; 
@@ -100,21 +106,21 @@ export default function Home() {
 			</Head>
 
 			<MainContainer>
-				<GridItem 
-				gridPosition={{
-					desktop: {
-						columnStart: 3,
-						columnEnd: 12,
-					},
-					tablet: {
-						columnStart: 1,
-						columnEnd: 10
-					},
-					mobile: {
-						columnStart: 1,
-						columnEnd: 8
-					}
-				}}>
+				<GridItem
+					gridPosition={{
+						desktop: {
+							columnStart: 3,
+							columnEnd: 12,
+						},
+						tablet: {
+							columnStart: 1,
+							columnEnd: 10
+						},
+						mobile: {
+							columnStart: 1,
+							columnEnd: 8
+						}
+					}}>
 					<h1>We <BlueSpan>design and build</BlueSpan> <DarkGraySpan>website that</DarkGraySpan> turn visitors into customers.</h1>
 				</GridItem>
 				<GridItem
@@ -132,29 +138,29 @@ export default function Home() {
 							columnEnd: 6
 						}
 					}}
-					style={{paddingBottom: '80px'}}
+					style={{ paddingBottom: '80px' }}
 				>
 					<Subtitle>Our work reflects your brand and works to turn visitors into leads, customers, and subscribers.</Subtitle>
 					<PrimaryButton hasArrow noBorder mt="32px" mobileMb="0" onClick={showContactForm}>Contact Us</PrimaryButton>
 					<StyledLink primary mt="32px" href="/projects">Our Work</StyledLink>
 				</GridItem>
-				
+
 				<GridItem
-				gridPosition={{
-					desktop: {
-						columnStart: 5,
-						columnEnd: 12,
-					},
-					tablet: {
-						columnStart: 1,
-						columnEnd: 10
-					},
-					mobile: {
-						columnStart: 1,
-						columnEnd: 8
-					}
-				}}
-				style={{zIndex: '-1'}}
+					gridPosition={{
+						desktop: {
+							columnStart: 5,
+							columnEnd: 12,
+						},
+						tablet: {
+							columnStart: 1,
+							columnEnd: 10
+						},
+						mobile: {
+							columnStart: 1,
+							columnEnd: 8
+						}
+					}}
+					style={{ zIndex: '-1' }}
 				>
 					<CircularArrow
 						src={circularDownArrow}
@@ -163,9 +169,9 @@ export default function Home() {
 						alt="Down Arrow"
 						layout="intrinsic"
 					/>
-					<Pic/>
+					<Pic />
 				</GridItem>
-				
+
 				<BackgroundBorderArea
 					gridPosition={{
 						desktop: {
@@ -182,23 +188,92 @@ export default function Home() {
 						}
 					}}
 				>
-					<BackPic/>
-				</BackgroundBorderArea>	
-				
+					<BackPic />
+				</BackgroundBorderArea>
+
 			</MainContainer>
 
+			<GridContainer>
+				<GridItem
+					gridPosition={{
+						desktop: {
+							columnStart: 7,
+							columnEnd: 11,
+						},
+						tablet: {
+							columnStart: 5,
+							columnEnd: 9
+						},
+						mobile: {
+							columnStart: 4,
+							columnEnd: 8
+						}
+					}}
+					style={{
+						paddingBottom: '125px'
+					}}>
+					<h2 className="color-dark">Here's some of our work.</h2>
+				</GridItem>
+			</GridContainer>
+
 			<CaseStudyLink
-			index='1'
+				index='1'
 			/>
 
 			<CaseStudyLink
-			index='2'
+				index='2'
 			/>
 
 			<CaseStudyLink
-			index='3'
+				index='3'
 			/>
-			
+
+			<CtaBanner>
+				<p className="h2 color-white text-center">
+					We work with some amazing companies.
+				</p>
+
+				<Swiper
+					slidesPerView={4}
+					autoplay={{
+					  delay: 1,
+					  disableOnInteraction: false,
+					}}
+					speed={20000}
+					modules={[Autoplay, FreeMode]}
+					loop={true}
+				>
+					<SwiperSlide>Slide 1</SwiperSlide>
+					<SwiperSlide>Slide 2</SwiperSlide>
+					<SwiperSlide>Slide 3</SwiperSlide>
+					<SwiperSlide>Slide 4</SwiperSlide>
+				</Swiper>
+
+				<div className="text-center">
+					<PrimaryButton>Let's talk</PrimaryButton>
+				</div>
+			</CtaBanner>
+
+			<MainContainer>
+				<GridItem
+					gridPosition={{
+						desktop: {
+							columnStart: 3,
+							columnEnd: 7,
+						},
+						tablet: {
+							columnStart: 2,
+							columnEnd: 7
+						},
+						mobile: {
+							columnStart: 2,
+							columnEnd: 7
+						}
+					}}>
+					<h2 className="color-dark">This is what we can do for you.</h2>
+				</GridItem>
+			</MainContainer>
+
 		</>
 	)
 }
