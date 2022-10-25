@@ -4,6 +4,9 @@ import { StyledLink } from '../CustomButtons';
 
 export const CaseStudyItem = styled.div`
 	margin-bottom: 125px;
+	@media screen and (max-width: ${props => props.theme.breakpoints.tablet}px) {
+		margin-bottom: 80px;
+	}
 `;
 
 export const BoxLink = styled(GridItem)`
@@ -56,8 +59,8 @@ export const BoxLink = styled(GridItem)`
 			display: grid;
 			grid-template-columns: 1fr;
 			grid-template-rows: 1fr 1fr;
-			padding-left: 20%;
-			padding-right: 20%;
+			padding-left: 12%;
+			padding-right: 12%;
 		}
 	}
 
@@ -77,13 +80,14 @@ export const CtaButton = styled(StyledLink)`
 export const CaseStudyImageContainer = styled(GridItem)`
 	transition: width 0.5s, transform 0.465s;
 	width: 100%;
-	height: 400px;
+	height: 280px;
 	position: relative;
 	display: block;
 	z-index: 2;
 	cursor: pointer;
 
 	@media screen and (min-width: ${props => props.theme.breakpoints.tablet}px) {
+		height: 400px;
 		${props => props.hovered && css`
 			width: 150%;
 		`}
