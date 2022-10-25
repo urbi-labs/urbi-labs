@@ -10,7 +10,7 @@ import pexelsFloDahm from '/public/assets/pexels-flo-dahm-699459.jpg'
 import circularDownArrow from '/public/assets/circular-down-arrow.png'
 import Image from 'next/future/image'
 import CtaBanner from '../components/Banner';
-import { Autoplay, FreeMode } from 'swiper';
+import { Autoplay, FreeMode, Lazy, Mousewheel, Keyboard} from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
@@ -230,23 +230,33 @@ export default function Home() {
 
 			<CtaBanner>
 				<p className="h2 color-white text-center">
-					We work with some amazing companies.
+					We work with amazing companies.
 				</p>
 
 				<Swiper
-					slidesPerView={4}
+					slidesPerView={'8'}
 					autoplay={{
 					  delay: 1,
-					  disableOnInteraction: false,
+					  disableOnInteraction: false
 					}}
-					speed={20000}
-					modules={[Autoplay, FreeMode]}
+					speed={1500}
+					mousewheel={true}
+  					keyboard={true}
+					freeMode={{
+						enabled: true
+					}}
+					modules={[Autoplay, FreeMode, Lazy, Mousewheel, Keyboard]}
 					loop={true}
+					className="transition-linear"
 				>
 					<SwiperSlide>Slide 1</SwiperSlide>
 					<SwiperSlide>Slide 2</SwiperSlide>
 					<SwiperSlide>Slide 3</SwiperSlide>
 					<SwiperSlide>Slide 4</SwiperSlide>
+					<SwiperSlide>Slide 5</SwiperSlide>
+					<SwiperSlide>Slide 6</SwiperSlide>
+					<SwiperSlide>Slide 7</SwiperSlide>
+					<SwiperSlide>Slide 8</SwiperSlide>
 				</Swiper>
 
 				<div className="text-center">

@@ -13,3 +13,8 @@
 .text-center {
 	text-align: center;
 }
+
+.transition-linear,
+.transition-linear > .swiper-wrapper {
+	transition-timing-function: linear!important;
+}
