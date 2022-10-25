@@ -1,12 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap');
+@import './variables.scss';
+@import './helpers.scss';
 
 $mobile: 480px;
 $tablet: 768px;
-
-$blue: #015DFE;
-$mediumGray: #75828A;
-$darkGray: #3A4145;
-$darkestGray: #232729;
 
 html,
 body {
