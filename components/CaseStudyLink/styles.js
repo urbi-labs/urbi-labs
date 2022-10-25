@@ -3,9 +3,9 @@ import GridItem from "../GridItem";
 import { StyledLink } from '../CustomButtons';
 
 export const CaseStudyItem = styled.div`
-	margin-bottom: 125px;
+	padding-bottom: 125px;
 	@media screen and (max-width: ${props => props.theme.breakpoints.tablet}px) {
-		margin-bottom: 80px;
+		padding-bottom: 80px;
 	}
 `;
 

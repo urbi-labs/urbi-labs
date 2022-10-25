@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { useCallback, useEffect } from 'react';
-import { useAsideContext } from '../../services/AsideContext';
+import { useAsideContext } from '../../providers/AsideContext';
 import GridContainer from '../GridContainer';
 import GridItem from '../GridItem';
 import {AsideContainer, CloseIcon, CloseNav, ComplementArea, ContentContainer, MainContentArea} from './styles'

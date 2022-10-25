@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import GridContainer from "../components/GridContainer"
 import GridItem from "../components/GridItem"
 import { PrimaryButton, StyledLink } from "../components/CustomButtons"
-import { useAsideContext } from '../services/AsideContext'
+import { useAsideContext } from '../providers/AsideContext'
 import CaseStudyLink from '../components/CaseStudyLink'
 import pexelsFloDahm from '/public/assets/pexels-flo-dahm-699459.jpg'
 import circularDownArrow from '/public/assets/circular-down-arrow.png'
@@ -234,18 +234,16 @@ export default function Home() {
 				</p>
 
 				<Swiper
-					slidesPerView={'8'}
+					slidesPerView={'6'}
 					autoplay={{
 					  delay: 1,
-					  disableOnInteraction: false
+					  disableOnInteraction: false,
 					}}
-					speed={1500}
-					mousewheel={true}
-  					keyboard={true}
+					speed={8000}
 					freeMode={{
 						enabled: true
 					}}
-					modules={[Autoplay, FreeMode, Lazy, Mousewheel, Keyboard]}
+					modules={[Autoplay, FreeMode, Lazy]}
 					loop={true}
 					className="transition-linear"
 				>
@@ -260,7 +258,7 @@ export default function Home() {
 				</Swiper>
 
 				<div className="text-center">
-					<PrimaryButton>Let's talk</PrimaryButton>
+					<PrimaryButton hasArrow={true}>Let's talk</PrimaryButton>
 				</div>
 			</CtaBanner>
 

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { withTheme } from 'styled-components'
-import { useAsideContext } from '../../services/AsideContext'
+import { useAsideContext } from '../../providers/AsideContext'
 import GridContainer from '../GridContainer'
 import GridItem from '../GridItem'
 

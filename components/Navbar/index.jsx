@@ -14,7 +14,7 @@ import mobileMenuIcon from '/public/assets/mobile-menu-icon.svg'
 import downArrow from '/public/assets/down-arrow.svg'
 import { useRouter } from "next/router"
 import MobileMenu from "./MobileMenu"
-import { useAsideContext } from "../../services/AsideContext"
+import { useAsideContext } from "../../providers/AsideContext"
 
 
 
