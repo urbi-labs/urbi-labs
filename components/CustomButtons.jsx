@@ -12,7 +12,8 @@ export const PrimaryButton = styled.button`
 	width: ${props => props.width ? props.width : '100%'};
 	cursor: pointer;
 	font-family: "Sora", sans-serif;
-	height: 64px;
+	max-width: 240px;
+	padding: 24px 0;
 	margin-top: ${props => props.mt ? props.mt : '30px'};
 	&:after{
 		padding-left: 10px;
@@ -20,7 +21,6 @@ export const PrimaryButton = styled.button`
 	}
 	@media screen and (max-width: ${props => props.theme.breakpoints.tablet}px){
 		margin-bottom: ${props => props.mobileMb ? props.mobileMb : '60px'};
-		max-width: 194px;
 	}
 `
 
