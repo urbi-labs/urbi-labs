@@ -15,6 +15,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/bundle';
+import FeaturedServices from '../components/FeaturedServices';
 
 const MainContainer = styled(GridContainer)` 
 	padding-top: 125px; 
@@ -263,6 +264,7 @@ export default function Home() {
 			</CtaBanner>
 
 			<MainContainer>
+
 				<GridItem
 					gridPosition={{
 						desktop: {
@@ -280,7 +282,10 @@ export default function Home() {
 					}}>
 					<h2 className="color-dark">This is what we can do for you.</h2>
 				</GridItem>
+				
 			</MainContainer>
+
+			<FeaturedServices/>
 
 		</>
 	)
