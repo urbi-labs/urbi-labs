@@ -42,17 +42,21 @@ const FeaturedServices = (props) => {
 
 				<FeaturedService>
 
-					<div className="featuredService__image">
-						<Image
-						src={service.image}
-						layout='fill'
-						objectFit='cover'
-						/>
-					</div>
+						<div className="featuredService__image">
+							<Link href="#">
+							<Image
+							src={service.image}
+							layout='fill'
+							objectFit='cover'
+							/>
+							</Link>
+						</div>
 
-					<div className="featuredService__name">
-						<p>{service.name}</p>
-					</div>
+						<Link href="#">
+							<div className="featuredService__name">
+								<p>{service.name}</p>
+							</div>
+						</Link>
 
 				</FeaturedService>
 
