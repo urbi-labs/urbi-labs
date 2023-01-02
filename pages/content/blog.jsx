@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import PageHero from '../../components/PageHero'
+import PostsBlock from '../../components/PostsBlock'
 
 const BlogPage = () => {
   return (
@@ -15,6 +16,8 @@ const BlogPage = () => {
         blueText="in the world" 
         subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
       /> 
+
+      <PostsBlock/>
     </div>
   )
 }

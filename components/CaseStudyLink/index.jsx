@@ -59,6 +59,7 @@ const CaseStudyLink = (props) => {
 
 	return (
 
+		<Link href="#">
 			<CaseStudyItem>
 
 				<GridContainer style={{
@@ -71,20 +72,20 @@ const CaseStudyLink = (props) => {
 						hovered={hovered}
 						positionLeft={positionLeft}
 					>
-						<Link href="#">
+						{/* <Link href="#"> */}
 							<Image
 								src={pexelsFloDahm}
 								layout='fill'
 								objectFit='cover'
 							/>
-						</Link>
+						{/* </Link> */}
 					</CaseStudyImageContainer>
 
 					<BoxLink
 						gridPosition={CaseStudyLinkPosition}
 						onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
 						hovered={hovered}
-						onClick={() => router.push('#')}
+						// onClick={() => router.push('#')}
 					>
 						<div className="textContainer">
 							<div>
@@ -101,7 +102,7 @@ const CaseStudyLink = (props) => {
 				</GridContainer>
 
 			</CaseStudyItem>
-
+		</Link>
 	)
 }
 

@@ -17,7 +17,7 @@ const footerMenuItemStyles = {
 	alignItems: "center",
 }
 
-// Arrea al final del footer, contiene Direccion y Social Medias
+// Area al final del footer, contiene Direccion y Social Medias
 const bottomFooterArea = {
 	marginTop: '120px',
 }
@@ -130,7 +130,7 @@ const Footer = ( props ) => {
 						columnEnd:12
 					}
 				}}>
-					<Link href='/resources' passHref>
+					<Link href='/content/resources' passHref>
 						<FooterLinkItem>
 							Resources
 						</FooterLinkItem>
@@ -174,7 +174,7 @@ const Footer = ( props ) => {
 						columnEnd:12
 					}
 				}}>
-					<Link href='/blog' passHref>
+					<Link href='/content/blog' passHref>
 						<FooterLinkItem>
 							Blog
 						</FooterLinkItem>

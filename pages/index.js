@@ -259,7 +259,7 @@ export default function Home() {
 				</Swiper>
 
 				<div className="text-center">
-					<PrimaryButton hasArrow={true}>Let's talk</PrimaryButton>
+					<PrimaryButton hasArrow={true} onClick={showContactForm}>Let's talk</PrimaryButton>
 				</div>
 			</CtaBanner>
 

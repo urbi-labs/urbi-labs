@@ -39,27 +39,27 @@ const FeaturedServices = (props) => {
 
 		<FeaturedServicesContainer className="container">
 			{services.map(service => (
-
+				<Link href="#" key={service.slug}>
 				<FeaturedService>
 
 						<div className="featuredService__image">
-							<Link href="#">
+							{/* <Link> */}
 							<Image
 							src={service.image}
 							layout='fill'
 							objectFit='cover'
 							/>
-							</Link>
+							{/* </Link> */}
 						</div>
 
-						<Link href="#">
+						{/* <Link href="#"> */}
 							<div className="featuredService__name">
 								<p>{service.name}</p>
 							</div>
-						</Link>
+						{/* </Link> */}
 
 				</FeaturedService>
-
+				</Link>
 			))}
 		</FeaturedServicesContainer>
 

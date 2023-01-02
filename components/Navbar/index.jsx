@@ -1,6 +1,6 @@
 
 import useWindowSize from "../../services/windowSize"
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 
 import { withTheme } from 'styled-components'
 import Link from "next/link"
@@ -68,148 +68,152 @@ const Navbar = ( props ) => {
 			<>
 			<Nav>
 				<GridContainer>
-
-					<NavbarItem
-					gridPosition={{
-						desktop: {
-							columnStart: 1,
-							columnEnd: 2,
-						},
-						tablet: {
-							columnStart: 1,
-							columnEnd: 3
-						},
-						mobile: {
-							columnStart: 1,
-							columnEnd: 3
-						}
-					}}
-					href="/"
-					>
-						<Image
-							src={logo}
-							width="90px"
-							height="56px"
-							alt="UrbiLabs"
-						/>
-					</NavbarItem>
-
-					<NavbarItem
-					style={ asPath === '/' ? currentPage : '' }
-					href="/"
-					gridPosition={{
-						desktop: {
-							columnStart: 3,
-							columnEnd: 4
-						},
-						tablet: {
-							columnStart: 1,
-							columnEnd:12,
-							rowStart: 2,
-							rowEnd: 3
-						},
-						mobile: {
-							columnStart: 1,
-							columnEnd:12,
-							rowStart: 2,
-							rowEnd: 3
-						}
-					}}
-					>
-						Home
-					</NavbarItem>
-
-					<NavbarItem
-					style={ asPath === '/projects' ? currentPage : '' }
-					href="/projects"
-					gridPosition={{
-						desktop: {
-							columnStart: 5,
-							columnEnd: 6,
-						},
-						tablet: {
-							columnStart: 1,
-							columnEnd:12,
-							rowStart: 3,
-							rowEnd: 4
-						},
-						mobile: {
-							columnStart: 1,
-							columnEnd:12,
-							rowStart: 3,
-							rowEnd: 4
-						}
-					}}
-					>
-						Projects
-					</NavbarItem>
-
-					<NavbarItem
-					style={ asPath === '/services' ? currentPage : '' }
-					href="/services"
-					gridPosition={{
-						desktop: {
-							columnStart: 7,
-							columnEnd: 8
-						},
-						tablet: {
-							columnStart: 1,
-							columnEnd:12,
-							rowStart: 4,
-							rowEnd: 5
-						},
-						mobile: {
-							columnStart: 1,
-							columnEnd:12,
-							rowStart: 4,
-							rowEnd: 5
-						}
-					}}
-					onMouseEnter={() => setShowServicesSubmenuNav(true)}
-					onMouseLeave={() => setShowServicesSubmenuNav(false)}
-					>
-							Services
+					<Link href="/" passHref>
+						<NavbarItem
+						gridPosition={{
+							desktop: {
+								columnStart: 1,
+								columnEnd: 2,
+							},
+							tablet: {
+								columnStart: 1,
+								columnEnd: 3
+							},
+							mobile: {
+								columnStart: 1,
+								columnEnd: 3
+							}
+						}}
+						
+						>
+							<Image
+								src={logo}
+								width="90px"
+								height="56px"
+								alt="UrbiLabs"
+							/>
+						</NavbarItem>
+					</Link>
+					<Link href="/" passHref>
+						<NavbarItem
+						style={ asPath === '/' ? currentPage : '' }
+						
+						gridPosition={{
+							desktop: {
+								columnStart: 3,
+								columnEnd: 4
+							},
+							tablet: {
+								columnStart: 1,
+								columnEnd:12,
+								rowStart: 2,
+								rowEnd: 3
+							},
+							mobile: {
+								columnStart: 1,
+								columnEnd:12,
+								rowStart: 2,
+								rowEnd: 3
+							}
+						}}
+						>
+							Home
+						</NavbarItem>
+					</Link>
+					<Link href="/projects" passHref>
+						<NavbarItem
+						style={ asPath === '/projects' ? currentPage : '' }
+						
+						gridPosition={{
+							desktop: {
+								columnStart: 5,
+								columnEnd: 6,
+							},
+							tablet: {
+								columnStart: 1,
+								columnEnd:12,
+								rowStart: 3,
+								rowEnd: 4
+							},
+							mobile: {
+								columnStart: 1,
+								columnEnd:12,
+								rowStart: 3,
+								rowEnd: 4
+							}
+						}}
+						>
+							Projects
+						</NavbarItem>
+					</Link>
+					<Link href="/services">
+						<NavbarItem
+						style={ asPath === '/services' ? currentPage : '' }
+						
+						gridPosition={{
+							desktop: {
+								columnStart: 7,
+								columnEnd: 8
+							},
+							tablet: {
+								columnStart: 1,
+								columnEnd:12,
+								rowStart: 4,
+								rowEnd: 5
+							},
+							mobile: {
+								columnStart: 1,
+								columnEnd:12,
+								rowStart: 4,
+								rowEnd: 5
+							}
+						}}
+						onMouseEnter={() => setShowServicesSubmenuNav(true)}
+						onMouseLeave={() => setShowServicesSubmenuNav(false)}
+						>
+								Services
+								<Image
+									src={downArrow}
+									alt="Arrow Icon"
+									height= '8px'
+									width= '30px'
+								/>
+						</NavbarItem>
+					</Link>
+					<Link href="/content">
+						<NavbarItem
+						style={ asPath === '/content' ? currentPage : '' }
+						
+						gridPosition={{
+							desktop: {
+								columnStart: 9,
+								columnEnd: 10
+							},
+							tablet: {
+								columnStart: 1,
+								columnEnd:12,
+								rowStart: 5,
+								rowEnd: 6
+							},
+							mobile: {
+								columnStart: 1,
+								columnEnd:12,
+								rowStart: 5,
+								rowEnd: 6
+							}
+						}}
+						onMouseEnter={() => setShowContentSubmenuNav(true)}
+						onMouseLeave={() => setShowContentSubmenuNav(false)}
+						>
+							Content
 							<Image
 								src={downArrow}
 								alt="Arrow Icon"
 								height= '8px'
 								width= '30px'
 							/>
-					</NavbarItem>
-
-					<NavbarItem
-					style={ asPath === '/content' ? currentPage : '' }
-					href="/content"
-					gridPosition={{
-						desktop: {
-							columnStart: 9,
-							columnEnd: 10
-						},
-						tablet: {
-							columnStart: 1,
-							columnEnd:12,
-							rowStart: 5,
-							rowEnd: 6
-						},
-						mobile: {
-							columnStart: 1,
-							columnEnd:12,
-							rowStart: 5,
-							rowEnd: 6
-						}
-					}}
-					onMouseEnter={() => setShowContentSubmenuNav(true)}
-					onMouseLeave={() => setShowContentSubmenuNav(false)}
-					>
-						Content
-						<Image
-							src={downArrow}
-							alt="Arrow Icon"
-							height= '8px'
-							width= '30px'
-						/>
-					</NavbarItem>
-
+						</NavbarItem>
+					</Link>
 					<GridItem
 						gridPosition={{
 							desktop: {
@@ -240,96 +244,108 @@ const Navbar = ( props ) => {
 			{showServicesSubmenuNav && 
 				(<SubMenuNav onMouseEnter={() => setShowServicesSubmenuNav(true)} onMouseLeave={() => setShowServicesSubmenuNav(false)}>
 					<GridContainer>
-						<NavbarItem
-							href="/services/web-design"
-							gridPosition={{
-								desktop: {
-									columnStart: 1,
-									columnEnd: 6,
-									rowStart: 1,
-									rowEnd: 2
-								}
-							}}
-							style={{justifyContent: 'end', paddingRight: '20px'}}
-						>
-							Web Design		
-						</NavbarItem>
-						<NavbarItem
-							href="/services/web-development"
-							gridPosition={{
-								desktop: {
-									columnStart: 1,
-									columnEnd: 6,
-									rowStart: 2,
-									rowEnd: 3
-								}
-							}}
-							style={{justifyContent: 'end', paddingRight: '20px'}}
-						>
-							Web Development		
-						</NavbarItem>
-						<NavbarItem
-							href="/services/crm-integration"
-							gridPosition={{
-								desktop: {
-									columnStart: 7,
-									columnEnd: 12,
-									rowStart: 1,
-									rowEnd: 2
-								}
-							}}
-							style={{justifyContent: 'start', paddingLeft: '20px'}}
-						>
-							CRM Integration		
-						</NavbarItem>
-						<NavbarItem
-							href="/services/conversion-rate-optimization"
-							gridPosition={{
-								desktop: {
-									columnStart: 7,
-									columnEnd: 12,
-									rowStart: 2,
-									rowEnd: 3
-								}
-							}}
-							style={{justifyContent: 'start', paddingLeft: '20px'}}
-						>
-							Conversion Rate Optimization		
-						</NavbarItem>
+						<Link href="/services/web-design">
+							<NavbarItem
+								
+								gridPosition={{
+									desktop: {
+										columnStart: 1,
+										columnEnd: 6,
+										rowStart: 1,
+										rowEnd: 2
+									}
+								}}
+								style={{justifyContent: 'end', paddingRight: '20px'}}
+							>
+								Web Design		
+							</NavbarItem>
+						</Link>
+						<Link href="/services/web-development">
+							<NavbarItem
+								
+								gridPosition={{
+									desktop: {
+										columnStart: 1,
+										columnEnd: 6,
+										rowStart: 2,
+										rowEnd: 3
+									}
+								}}
+								style={{justifyContent: 'end', paddingRight: '20px'}}
+							>
+								Web Development		
+							</NavbarItem>
+						</Link>
+						<Link href="/services/crm-integration">
+							<NavbarItem
+								
+								gridPosition={{
+									desktop: {
+										columnStart: 7,
+										columnEnd: 12,
+										rowStart: 1,
+										rowEnd: 2
+									}
+								}}
+								style={{justifyContent: 'start', paddingLeft: '20px'}}
+							>
+								CRM Integration		
+							</NavbarItem>
+						</Link>
+						<Link href="/services/conversion-rate-optimization">
+							<NavbarItem
+								
+								gridPosition={{
+									desktop: {
+										columnStart: 7,
+										columnEnd: 12,
+										rowStart: 2,
+										rowEnd: 3
+									}
+								}}
+								style={{justifyContent: 'start', paddingLeft: '20px'}}
+							>
+								Conversion Rate Optimization		
+							</NavbarItem>
+						</Link>
 					</GridContainer>
 				</SubMenuNav>
 			)}
 			{showContentSubmenuNav && 
 				(<SubMenuNav onMouseEnter={() => setShowContentSubmenuNav(true)} onMouseLeave={() => setShowContentSubmenuNav(false)}>
 					<GridContainer>
-						<NavbarItem
-							href="/content/resources"
-							gridPosition={{
-								desktop: {
-									columnStart: 1,
-									columnEnd: 6,
-									rowStart: 1,
-									rowEnd: 2
-								}
-							}}
-							style={{justifyContent: 'end', paddingRight: '20px'}}
-						>
-							Resources		
-						</NavbarItem>
-						<NavbarItem
-							href="/content/blog"
-							gridPosition={{
-								desktop: {
-									columnStart: 7,
-									columnEnd: 12,
-									rowStart: 1,
-									rowEnd: 2
-								}
-							}}
-							style={{justifyContent: 'start', paddingLeft: '20px'}}
-						>
-							Blog		
-						</NavbarItem>
+						<Link href="/content/resources">
+							<NavbarItem
+								
+								gridPosition={{
+									desktop: {
+										columnStart: 1,
+										columnEnd: 6,
+										rowStart: 1,
+										rowEnd: 2
+									}
+								}}
+								style={{justifyContent: 'end', paddingRight: '20px'}}
+							>
+								Resources		
+							</NavbarItem>
+						</Link>
+						<Link href="/content/blog">
+							<NavbarItem
+								
+								gridPosition={{
+									desktop: {
+										columnStart: 7,
+										columnEnd: 12,
+										rowStart: 1,
+										rowEnd: 2
+									}
+								}}
+								style={{justifyContent: 'start', paddingLeft: '20px'}}
+							>
+								Blog		
+							</NavbarItem>
+						</Link>
 					</GridContainer>
 				</SubMenuNav>
 			)}
@@ -340,30 +356,32 @@ const Navbar = ( props ) => {
 	return (
 		<Nav>
 			<GridContainer>
-				<NavbarItem
-					gridPosition={{
-						desktop: {
-							columnStart: 1,
-							columnEnd: 2,
-						},
-						tablet: {
-							columnStart: 1,
-							columnEnd: 3
-						},
-						mobile: {
-							columnStart: 1,
-							columnEnd: 3
-						}
-					}}
-					href="/"
-					>
-						<Image
-							src={logo}
-							width="90px"
-							height="56px"
-							alt="UrbiLabs"
-						/>
-					</NavbarItem>
+				<Link href="/">
+					<NavbarItem
+						gridPosition={{
+							desktop: {
+								columnStart: 1,
+								columnEnd: 2,
+							},
+							tablet: {
+								columnStart: 1,
+								columnEnd: 3
+							},
+							mobile: {
+								columnStart: 1,
+								columnEnd: 3
+							}
+						}}
+						
+						>
+							<Image
+								src={logo}
+								width="90px"
+								height="56px"
+								alt="UrbiLabs"
+							/>
+						</NavbarItem>
+					</Link>
 					<GridItem
 						gridPosition={{
 							desktop: {
@@ -397,7 +415,7 @@ const Navbar = ( props ) => {
 
 }
 
-const NavbarItem = (props) => {
+const NavbarItem = React.forwardRef((props, ref) => {
 
 	const menuItemStyles = {
 		display: "flex",
@@ -407,15 +425,15 @@ const NavbarItem = (props) => {
 	}
 
 	return (
-		<Link href={props.href}>
+		// <Link href={props.href}>
 			<GridItem {...props} style={{...menuItemStyles, ...props.style}}>
 				<MenuItem className={props.className}>
 						{props.children}
 				</MenuItem>
 			</GridItem>
-		</Link>
+		// </Link>
 	)
 
-}
+})
 
 export default withTheme(Navbar)
